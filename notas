@@ -1,0 +1,28 @@
+@RestController//Spring considers it when handling incoming web requests
+//@RestController annotation tells Spring to render the resulting string directly back to the caller.
+
+The second class-level annotation is @SpringBootApplication.
+This annotation is known as a meta-annotation,
+it combines @SpringBootConfiguration, @EnableAutoConfiguration and @ComponentScan.
+Of those, the annotation we’re most interested in here is @EnableAutoConfiguration.
+@EnableAutoConfiguration tells Spring Boot to “guess” how you want to configure Spring,
+based on the jar dependencies that you have added.
+Since spring-boot-starter-web added Tomcat and Spring MVC, the auto-configuration assumes
+that you are developing a web application and sets up Spring accordingly.
+
+@RequestMapping("/") //It tells Spring that any HTTP request with the / path should be mapped to the home method
+
+    private final StudentService studentService;
+    @Autowired
+    public StudentController(StudentService studentService){
+        this.studentService = studentService;
+    }
+@Autowired soluciona el problema de no tener instanciada la clase studentService,
+lo que hace es instanciar esa clase automaticamente para satisfacer esa "dependencia"
+por eso se llama dependency injection.
+
+public interface StudentRepository extends JpaRepository <Student, Long>{
+         especificamos los tipos con los que trabajamos  La clase, y Id que en este caso son student y long
+}
+
+@Transient indica que no es necesario crear una columna en la base de datos para el siguiente campo
