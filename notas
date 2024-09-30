@@ -26,3 +26,8 @@ public interface StudentRepository extends JpaRepository <Student, Long>{
 }
 
 @Transient indica que no es necesario crear una columna en la base de datos para el siguiente campo
+
+Podria exister una clase DTO que se encarga de basicamente hacer joins entre distintas tablas.
+https://www.oscarblancarteblog.com/2018/11/30/data-transfer-object-dto-patron-diseno/
+
+Para evitar la creacion de una clase DTO podemos usar MAPPERS que se encargan de crear DTO en compilacion de forma automatica
